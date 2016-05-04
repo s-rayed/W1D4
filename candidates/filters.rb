@@ -2,8 +2,8 @@
 # This way, we keep these methods separated from other potential parts of the program
 
 def find(id)
+  raise '@candidates must be an Array' if @candidates.nil?
   @candidates.detect {|candidate| candidate[:id] == id}
-
 end
 
 def qualified_candidates(candidates = [])
@@ -18,6 +18,9 @@ def qualified_candidates(candidates = [])
 end
 
 def experienced?(candidate)
+  unless candidate.has_key?(:years_of_experience)
+    raise ArgumentError, 'candidate must have a :years_of_experience key'
+  end
   candidate[:years_of_experience] >= 2
 end
 

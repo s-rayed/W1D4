@@ -20,8 +20,8 @@ while repeat == true
   input1 = gets.chomp
   input2 = input1.split(" ")
   case input2[0]
-  when 'find'
-    find(input2[1])
+  when "find"
+    pp find((input2[1]).to_i)
   when 'all'
     pp all_candidates
   when 'qualified'
